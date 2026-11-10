@@ -1,0 +1,9 @@
+*{
+    color: green;
+}
+img{
+    max-width: 200px;
+}
+.container{
+    margin: auto;
+}
