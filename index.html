@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kő, papír, olló</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="container">
-            <h1>Kö - Papír - Olló</h1>
-    <h2>Válassz!</h2>
-    <div>
-        <img src="/kepek/ko.png" alt="">
-        <img src="/kepek/papir.png" alt="">
-        <img src="/kepek/ollo.png" alt="">
-    </div>
-    <h2>gép választ</h2>
-    <h1>Eredmény te nyertél</h1>
-    <h3>te pontod</h3>
-    <h3>gép pontja</h3>
-    </div>
+    <main>
+        <h1>Kő - Papír - Olló</h1>
+        <h2>Válassz!</h2>
 
+        <div class="lehetosegek">
+            <img src="img/ko.png" alt="Kő" onclick="jatek(1)">
+            <img src="img/papir.png" alt="Papír" onclick="jatek(2)">
+            <img src="img/ollo.png" alt="Olló" onclick="jatek(3)">
+        </div>
+
+        <h2>Gép választása</h2>
+        <img id="gepValasztas" src="img/ures.png" alt="A gép választása">
+
+        <h2 id="eredmeny">Válassz!</h2>
+        <p>Te pontod: <span id="jatekosPont">0</span></p>
+        <p>Gép pontja: <span id="gepPont">0</span></p>
+    </main>
+    <script src="app.js"></script>
 </body>
 </html>
