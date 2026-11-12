@@ -6,7 +6,7 @@ function jatek(jatekosValasztas) {
     const kepek = ["ko.png", "papir.png", "ollo.png"];
 
     document.getElementById("gepValasztas").src =
-        "img/" + kepek[gepValasztas - 1];
+        "kepek/" + kepek[gepValasztas - 1];
 
     let eredmeny;
 
