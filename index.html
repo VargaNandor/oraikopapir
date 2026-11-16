@@ -1,29 +1,56 @@
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kő, papír, olló</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <h1>Kő - Papír - Olló</h1>
+
+<main>
+    <h1>Kő - Papír - Olló</h1>
+
+    <form id="belepes">
+        <h2>Játékos adatai</h2>
+        <label>Név:</label>
+        <input type="text" id="nev">
+
+        <label>Email:</label>
+        <input type="text" id="email">
+
+        <button type="submit">Játék indítása</button>
+        <p id="hiba"></p>
+    </form>
+
+    <div id="jatek" style="display:none;">
+
         <h2>Válassz!</h2>
 
         <div class="lehetosegek">
-            <img src="kepek/ko.png" alt="Kő" onclick="jatek(1)">
-            <img src="kepek/papir.png" alt="Papír" onclick="jatek(2)">
-            <img src="kepek/ollo.png" alt="Olló" onclick="jatek(3)">
+            <img src="kepek/ko.png" onclick="jatek(1)" alt="Kő">
+            <img src="kepek/papir.png" onclick="jatek(2)" alt="Papír">
+            <img src="kepek/ollo.png" onclick="jatek(3)" alt="Olló">
         </div>
 
         <h2>Gép választása</h2>
-        <img id="gepValasztas" src="kepek/ures.png" alt="A gép választása">
+        <img id="gepValasztas" src="kepek/ures.png" alt="Gép">
 
         <h2 id="eredmeny">Válassz!</h2>
-        <p>Te pontod: <span id="jatekosPont">0</span></p>
+
+        <p id="jatekosNev"></p>
+        <p>Játékos pontja: <span id="jatekosPont">0</span></p>
         <p>Gép pontja: <span id="gepPont">0</span></p>
-    </main>
-    <script src="java.js"></script>
+
+        <h2 id="vegeredmeny"></h2>
+
+        <button id="ujrakezdes" onclick="ujrakezdes()" style="display:none;">
+            Újrakezdés
+        </button>
+
+    </div>
+</main>
+
+<script src="java.js"></script>
 </body>
 </html>
