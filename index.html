@@ -9,22 +9,39 @@
 <body>
 
 <main>
+
     <h1>Kő - Papír - Olló</h1>
 
-    <form id="belepes">
+    <!-- Belépés -->
+
+
+
+
+    <div id="belepes">
+
         <h2>Játékos adatai</h2>
         <label>Név:</label>
         <input type="text" id="nev">
-
         <label>Email:</label>
         <input type="text" id="email">
 
-        <button type="submit">Játék indítása</button>
+        <button type="button" onclick="belepes()">
+            Játék indítása
+        </button>
+
         <p id="hiba"></p>
-    </form>
 
-    <div id="jatek" style="display:none;">
+    </div>
 
+
+
+
+
+
+
+
+    <!-- Játék -->
+<div id="jatek">
         <h2>Válassz!</h2>
 
         <div class="lehetosegek">
@@ -34,10 +51,8 @@
         </div>
 
         <h2>Gép választása</h2>
-        <img id="gepValasztas" src="kepek/ures.png" alt="Gép">
-
+        <img id="gepValasztas" src="kepek/semmi.png" alt="Gép">
         <h2 id="eredmeny">Válassz!</h2>
-
         <p id="jatekosNev"></p>
         <p>Játékos pontja: <span id="jatekosPont">0</span></p>
         <p>Gép pontja: <span id="gepPont">0</span></p>
@@ -49,8 +64,10 @@
         </button>
 
     </div>
+
 </main>
 
 <script src="java.js"></script>
+
 </body>
 </html>

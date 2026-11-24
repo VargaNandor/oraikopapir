@@ -7,9 +7,9 @@ let email = "";
 // Belépés
 //email ellenorzese hianyzik csinald meg (include kell hogy megnezd h van e benne @ es .)
 //a nev minim hosszat vidd feljebb
-document.getElementById("belepes").onsubmit = function(event) {
+function belepes() {
 
-    event.preventDefault();
+    document.getElementById("jatek").style.display = "block";
     email = document.getElementById("email").value;
     nev = document.getElementById("nev").value;
 
@@ -18,17 +18,24 @@ document.getElementById("belepes").onsubmit = function(event) {
         return;
     }
 
-    if(email.includes("@") == false || email.includes(".") == false)
-    {
-        document.getElementById("hiba").innerHTML = "Hibás email cím!";
-        return;
-    }
+if (
+    email.includes("@") == false ||
+    email.includes(".") == false ||
+    email.indexOf("@") == 0 ||
+    email.indexOf(".") == email.length - 1 ||
+    email.indexOf("@") > email.lastIndexOf(".") ||
+    email.includes("@.") ||
+    email.includes(".@") ||
+    email.includes(" ")
+) {
+    document.getElementById("hiba").innerHTML = "Hibás email cím!";
+    return;
+}
 
-    document.getElementById("belepes").style.display = "none";
     document.getElementById("jatek").style.display = "block";
 
     document.getElementById("jatekosNev").innerHTML = "Játékos: " + nev;
-};
+}
 
 
 // Játék
@@ -38,7 +45,7 @@ function jatek(valasztas) {
     if (jatekosPont == 10 || gepPont == 10) {
         return;
     }
-
+//nem lehet js ben random szam merteket beallítani ezért lesz ott a *3 mert az szorozza az 0-1 közötti szamot es flooral le kerekitjuk lefelé és hozzá adunk egyet h 0 ne lehessenS
     let gep = Math.floor(Math.random() * 3) + 1;
 
     let kepek = ["ko.png", "papir.png", "ollo.png"];
@@ -68,7 +75,7 @@ function jatek(valasztas) {
     document.getElementById("gepPont").innerHTML = gepPont;
 
     if (jatekosPont == 10) {
-        document.getElementById("vegeredmeny").innerHTML = "Megnyerted a játékot!";
+        document.getElementById("vegeredmeny").innerHTML = `Megnyerted a játékot! ${nev}`;
         document.getElementById("ujrakezdes").style.display = "inline";
     }
 
@@ -88,11 +95,8 @@ function ujrakezdes() {
 
     document.getElementById("jatekosPont").innerHTML = 0;
     document.getElementById("gepPont").innerHTML = 0;
-
     document.getElementById("eredmeny").innerHTML = "Válassz!";
     document.getElementById("vegeredmeny").innerHTML = "";
-
     document.getElementById("gepValasztas").src = "kepek/semmi.png";
-
     document.getElementById("ujrakezdes").style.display = "none";
 }
