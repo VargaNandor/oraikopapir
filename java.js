@@ -7,16 +7,27 @@ let email = "";
 // Belépés
 //email ellenorzese hianyzik csinald meg (include kell hogy megnezd h van e benne @ es .)
 //a nev minim hosszat vidd feljebb
+// a nev nincs jol ellenorizve
 function belepes() {
 
     document.getElementById("jatek").style.display = "block";
     email = document.getElementById("email").value;
     nev = document.getElementById("nev").value;
 
-    if (nev.length < 5) {
-        document.getElementById("hiba").innerHTML = "Túl rövid név!";
-        return;
-    }
+if (nev.trim() === "") {
+    document.getElementById("hiba").innerHTML = "A név nem lehet üres!";
+    return;
+}
+
+if (nev.trim().length < 5) {
+    document.getElementById("hiba").innerHTML = "Túl rövid név!";
+    return;
+}
+
+if (!/^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ\s]+$/.test(nev.trim())) {
+    document.getElementById("hiba").innerHTML = "A név csak betűket tartalmazhat!";
+    return;
+}
 
 if (
     email.includes("@") == false ||
